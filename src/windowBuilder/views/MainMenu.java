@@ -138,12 +138,13 @@ public class MainMenu extends JFrame {
 		
 		JButton btnNewButton = new JButton("Delete Member");
 		btnNewButton.setBackground(Color.LIGHT_GRAY);
-		btnNewButton.setFont(new Font("Dialog", Font.PLAIN, 14));
+		btnNewButton.setFont(new Font("Permanent Marker", Font.PLAIN, 14));
 		btnNewButton.setAction(action);
 		btnNewButton.setBounds(188, 225, 198, 40);
 		contentPane.add(btnNewButton);
 		
 		JButton btnHistory = new JButton("History...");
+		btnHistory.setFont(new Font("Permanent Marker", Font.PLAIN, 11));
 		btnHistory.setAction(action_1);
 		btnHistory.setBounds(451, 394, 89, 23);
 		contentPane.add(btnHistory);
