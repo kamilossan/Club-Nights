@@ -22,7 +22,7 @@ public class Manager {
 	public static int MARGIN = 100;
 	public static boolean BY_RATING = true;
 	public static int FIELD_COUNT = 2;
-
+	public static int TEAM_SIZE = 1;
 	public Manager() {
 		// TODO Auto-generated constructor stub
 	}
@@ -79,15 +79,22 @@ public class Manager {
 
 	// generate match
 	public static Match createMatch() {
+		Player[] t1 = new Player[TEAM_SIZE];
+		Player[] t2 = new Player[TEAM_SIZE];
+		for(int x = 0; x<TEAM_SIZE; x++){
 		Player player = QUEUE.pop();
 		Player opponent = findWorthyOpponent(player);
+		t1[x] = player;
+		t2[x] = opponent;
 		QUEUE.remove(opponent);
-		return new Match(player, opponent);
+		}
+		
+		return new Match(t1, t2);
 
 	}
 
 	public static void fillMatches() {
-		while (QUEUE.size() >= 2 && ONGOING_MATCHES.size() < FIELD_COUNT) {
+		while (QUEUE.size() >= 2*TEAM_SIZE && ONGOING_MATCHES.size() < FIELD_COUNT) {
 			ONGOING_MATCHES.add(createMatch());
 
 		}

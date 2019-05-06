@@ -19,6 +19,7 @@ public class MatchHistory extends JFrame{
 			model.addElement(match.convertResult());
 		}
 		JList list = new JList(model);
+		list.setForeground(Color.WHITE);
 		list.setBackground(Color.DARK_GRAY);
 		getContentPane().add(list, BorderLayout.CENTER);
 		setVisible(true);

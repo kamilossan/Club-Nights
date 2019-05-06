@@ -50,6 +50,7 @@ public class Session_Options extends JFrame {
 	Thread thread;
 	JRadioButton rdbtnMatchByElo;
 	JRadioButton rdbtnNewRadioButton = new JRadioButton("Randomize");
+	JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Match Pairs");
 	private final Action action_4 = new SwingAction_4();
 
 	/**
@@ -138,6 +139,12 @@ public class Session_Options extends JFrame {
 		rdbtnNewRadioButton.setBackground(Color.DARK_GRAY);
 		rdbtnNewRadioButton.setBounds(312, 272, 109, 23);
 		Session_Options.add(rdbtnNewRadioButton);
+		
+		
+		rdbtnNewRadioButton_1.setForeground(Color.WHITE);
+		rdbtnNewRadioButton_1.setBackground(Color.DARK_GRAY);
+		rdbtnNewRadioButton_1.setBounds(44, 204, 109, 23);
+		Session_Options.add(rdbtnNewRadioButton_1);
 		thread = new Thread(new Runnable() {
 			public void run() {
 				while (true) {
@@ -216,6 +223,12 @@ public class Session_Options extends JFrame {
 			Manager.FIELD_COUNT = (int) spinner.getValue();
 			if (rdbtnNewRadioButton.isSelected()) {
 				Manager.randomizeQueue();
+			}
+			if(rdbtnNewRadioButton_1.isSelected()){
+				Manager.TEAM_SIZE = 2;
+				
+			}else{
+				Manager.TEAM_SIZE = 1;
 			}
 			Manager.fillMatches();
 			new Games();
